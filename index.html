@@ -6,6 +6,9 @@
 <title>Sam Redmore</title>
 <meta name="author" content="Sam Redmore">
 <meta name="description" content="Sam Redmore">
+<!-- Jost (a Futura-style face) for the release caption, subset to just the letters it uses -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@700&amp;text=ABDEHILMNORSTUW&amp;display=swap" rel="stylesheet">
 <style>
 /* Background artwork is 1920×976, sized with `cover` from the top centre.
    Its scale factor is max(100vw/1920, 100vh/976). The original page (via
@@ -13,8 +16,11 @@
    y≈460 of that artwork, so we anchor to that point directly:
    460/1920 = 23.96vw, 460/976 = 47.13vh. */
 :root {
+  /* The release block (cover + caption) is 331×411 at full size and scales
+     down with the screen on narrow phones; --u is one "original pixel". */
   --cover-w: min(331px, calc(100vw - 32px));
-  --cover-h: calc(var(--cover-w) * 411 / 331);
+  --u: calc(var(--cover-w) / 331);
+  --cover-h: calc(var(--u) * 411);
 }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -31,27 +37,65 @@ body::before {
   z-index: -1;
   background:
     linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)),
-    url(assets/img/bg.jpg) center top / cover no-repeat;
+    #174883 url(assets/img/bg.webp) center top / cover no-repeat;
 }
 main {
   min-height: 100vh;
+  min-height: 100dvh;
   box-sizing: border-box;
   padding: max(16px, calc(max(23.96vw, 47.13vh) - var(--cover-h) / 2)) 0 24px;
 }
 a { color: #fff; text-decoration: none; }
 a:focus-visible { outline: 1px dotted #fff; outline-offset: 3px; }
 
-h1 {
-  margin: 0 0 .7vw;
-  font-size: 4.3em;
-  font-weight: 400;
-  line-height: 1;
-}
-h1 img {
+/* Release: cover + caption, laid out to match the old 331×411 image */
+.release {
+  display: block;
   width: var(--cover-w);
-  height: auto;
-  vertical-align: baseline;
+  height: var(--cover-h);
+  margin: 0 auto calc(.7em + .7vw);
 }
+.release img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.release-title,
+.release-cta {
+  display: block;
+  /* The artwork's caption is Futura squeezed to 80% width: widen the box
+     by 1/0.8 so the text stays centred, then squeeze it back */
+  width: 125%;
+  margin-left: -12.5%;
+  transform: scaleX(.8);
+  font-family: Jost, Futura, "Trebuchet MS", Arial, sans-serif;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.release-title {
+  margin-top: calc(var(--u) * 3);
+  font-size: calc(var(--u) * 28.8);
+  font-weight: 700;
+}
+.release-title .dot {
+  display: inline-block;
+  width: .24em;
+  height: .24em;
+  margin: 0 .02em;
+  border-radius: 50%;
+  background: currentColor;
+  vertical-align: .25em;
+}
+.release-cta {
+  margin-top: calc(var(--u) * -19);
+  color: #ffdd00;
+  font-size: calc(var(--u) * 17.1);
+  font-weight: 700;
+  transition: color .3s;
+}
+.release:hover .release-cta,
+.release:focus-visible .release-cta { color: #fff; }
 
 /* Social links */
 .social {
@@ -113,16 +157,20 @@ h1 img {
 }
 @media (max-width: 384px) {
   body { font-size: 11px; }
-  h1 { font-size: 3em; }
+  .release { margin-bottom: calc(.49em + .7vw); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .social a, .social a::before { transition: none; }
+  .social a, .social a::before, .release-cta { transition: none; }
 }
 </style>
 </head>
 <body>
 <main>
-  <h1><a href="https://samredmore.lnk.to/modulate" target="_blank" rel="noopener"><img src="assets/img/cover.png" width="331" height="411" alt="Sam Redmore – Modulate. Listen to the new album now"></a></h1>
+  <a class="release" href="https://samredmore.lnk.to/modulate" target="_blank" rel="noopener">
+    <img src="assets/img/cover.webp" width="662" height="662" alt="Modulate album cover: the word ‘Modulate’ built from colourful synths, keyboards and cables on a red background">
+    <h1 class="release-title">Sam Redmore <span class="dot" aria-hidden="true"></span> Modulate</h1>
+    <span class="release-cta">Listen to the new album now</span>
+  </a>
 
   <nav class="social" aria-label="Sam Redmore online">
     <ul>
