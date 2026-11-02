@@ -1,90 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
-	<title>Sam Redmore</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-	
-	<!-- FAVICON -->
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	
-	<meta name="author" content="Sam Redmore" />
-	<meta name="description" content="Sam Redmore" />
-	<meta name="keywords"  content="Sam Redmore, Jalapeno Records" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sam Redmore</title>
+<meta name="author" content="Sam Redmore">
+<meta name="description" content="Sam Redmore">
+<style>
+/* Background artwork is 1920×976, sized with `cover` from the top centre.
+   Its scale factor is max(100vw/1920, 100vh/976). The original page (via
+   <br> spacers + vertical centring) put the middle of the cover image at
+   y≈460 of that artwork, so we anchor to that point directly:
+   460/1920 = 23.96vw, 460/976 = 47.13vh. */
+:root {
+  --cover-w: min(331px, calc(100vw - 32px));
+  --cover-h: calc(var(--cover-w) * 411 / 331);
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: #fff;
+  color: #fff;
+  font: 16px/1.5 Arial, sans-serif;
+  text-align: center;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)),
+    url(assets/img/bg.jpg) center top / cover no-repeat;
+}
+main {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: max(16px, calc(max(23.96vw, 47.13vh) - var(--cover-h) / 2)) 0 24px;
+}
+a { color: #fff; text-decoration: none; }
+a:focus-visible { outline: 1px dotted #fff; outline-offset: 3px; }
 
-	<!-- GOOGLE FONTS -->
-	<link href='https://fonts.googleapis.com/css?family=Raleway:400,700,600,500,300,200,100,800,900' rel='stylesheet' type='text/css'>
-	
-	<!-- STYLESHEETS -->
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/jquery.fullPage.css" />
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-	
-	<!--[if IE]>
-		<script type="text/javascript">
-			 var console = { log: function() {} };
-		</script>
-	<![endif]-->
+h1 {
+  margin: 0 0 .7vw;
+  font-size: 4.3em;
+  font-weight: 400;
+  line-height: 1;
+}
+h1 img {
+  width: var(--cover-w);
+  height: auto;
+  vertical-align: baseline;
+}
+
+/* Social links */
+.social {
+  display: flow-root;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.social ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: .7em;
+}
+.social li { display: inline; }
+.social a {
+  position: relative;
+  display: inline-block;
+  margin: 1%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 0 1px rgba(255, 255, 255, .3);
+  transition: color .3s;
+}
+.social a::before {
+  content: "•";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: transparent;
+  text-shadow: 0 0 transparent;
+  transition: text-shadow .3s, color .3s;
+  pointer-events: none;
+}
+.social a:hover,
+.social a:focus-visible { text-shadow: none; }
+.social a:hover::before,
+.social a:focus-visible::before {
+  color: #fff;
+  text-shadow: 10px 0 #fff, -10px 0 #fff;
+}
+
+/* Contact */
+.contact {
+  margin: calc(1.5em / .7) 0 0; /* one line of body text */
+  font-size: .7em;
+  text-transform: uppercase;
+}
+.contact a:hover,
+.contact a:focus-visible { color: #666; }
+
+@media (min-width: 1200px) {
+  .social { width: 60%; box-sizing: border-box; }
+}
+@media (max-width: 1600px) { body { font-size: 12.5px; } }
+@media (max-width: 800px) {
+  .social ul:first-child { margin-top: 4%; }
+  .contact { padding-top: 4vw; }
+}
+@media (max-width: 384px) {
+  body { font-size: 11px; }
+  h1 { font-size: 3em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .social a, .social a::before { transition: none; }
+}
+</style>
 </head>
 <body>
+<main>
+  <h1><a href="https://samredmore.lnk.to/modulate" target="_blank" rel="noopener"><img src="assets/img/cover.png" width="331" height="411" alt="Sam Redmore – Modulate. Listen to the new album now"></a></h1>
 
-	<!-- /Preloader -->
-	<div class="preloader">
-		<div class="status"></div>
-	</div>
-	<!-- /Preloader -->
-	
-<div id="fullpage">
-		
-	
-	
-	
-	
-	<div class="section align-center" id="section2">
-	
-		<div class="heading"><br><br><br><br>
-        <h1><a href="https://samredmore.lnk.to/modulate" target="_blank"><img src="assets/img/cover.png" width="331" height="411"></a></h1>
-					</div>
-																					
-		<!-- SOCIAL ICON -->
-		<div class="col-lg-12 align-center social-icons social-effect">
-        
-            <h2><a href="https://www.instagram.com/sam_redmore" target="_blank">instagram</a>
-				<a href="https://www.facebook.com/samredmoremusic" target="_blank"><strong>facebook</strong></a>
-				<a href="https://www.youtube.com/channel/UC8tc4jXszErZ8dUAWxcCQ2g" target="_blank">youtube</a>
-			<a href="https://www.tiktok.com/@samredmore" target="_blank"><strong>tik tok</strong></a>
-			<br>
-            <a href="https://samredmore.bandcamp.com/" target="_blank">Bandcamp</a>
-            <a href="https://open.spotify.com/artist/3McygTbX192HcFzSHa9mA6?si=FlUv6-5aTCuLzL-JpHY0jQ" target="_blank">Spotify</a>
-            <a href="https://music.apple.com/gb/artist/sam-redmore/597404764?l=en" target="_blank">Apple</a>
-            <a href="https://www.songkick.com/artists/1598974-sam-redmore" target="_blank">Live dates</a></h2>
-               
-		</div>
-        <div class="heading">
-							<br>
-			<h2><a href="mailto:josh@diplomatsofsound.com" target="_blank">Live bookings : josh@diplomatsofsound.com</a><br>
-            <a href="mailto:trevor@jalapenorecords.com" target="_blank">Label & Licensing: trevor@jalapenorecords.com</a></h2>
-			
+  <nav class="social" aria-label="Sam Redmore online">
+    <ul>
+      <li><a href="https://www.instagram.com/sam_redmore" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.facebook.com/samredmoremusic" target="_blank" rel="noopener">Facebook</a></li>
+      <li><a href="https://www.youtube.com/channel/UC8tc4jXszErZ8dUAWxcCQ2g" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.tiktok.com/@samredmore" target="_blank" rel="noopener">Tik Tok</a></li>
+    </ul>
+    <ul>
+      <li><a href="https://samredmore.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a></li>
+      <li><a href="https://open.spotify.com/artist/3McygTbX192HcFzSHa9mA6?si=FlUv6-5aTCuLzL-JpHY0jQ" target="_blank" rel="noopener">Spotify</a></li>
+      <li><a href="https://music.apple.com/gb/artist/sam-redmore/597404764?l=en" target="_blank" rel="noopener">Apple</a></li>
+      <li><a href="https://www.songkick.com/artists/1598974-sam-redmore" target="_blank" rel="noopener">Live dates</a></li>
+    </ul>
+  </nav>
 
-		</div>
-		<!-- /SOCIAL ICON -->
-	</div>
-   
-</div>	
-	
-<!-- SCRIPTS -->
-<script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery-ui-1.10.4.min.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery.fullPage.js"></script>
-<script type="text/javascript" src="assets/js/notifyMe.js"></script>
-<script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
-<script type="text/javascript" src="assets/js/jquery.placeholder.js"></script>
-<script type="text/javascript" src="assets/js/jquery.simple-text-rotator.js"></script>
-<script type="text/javascript" src="assets/js/init.js"></script>
-
+  <p class="contact">
+    <a href="mailto:josh@diplomatsofsound.com">Live bookings : josh@diplomatsofsound.com</a><br>
+    <a href="mailto:trevor@jalapenorecords.com">Label &amp; Licensing: trevor@jalapenorecords.com</a>
+  </p>
+</main>
 </body>
-
 </html>
